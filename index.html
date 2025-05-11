@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường PTDTNT Thái Nguyên - Ngôi Nhà Thứ Hai Của Chúng Em</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* --- PHẦN HEADER VÀ LOGO --- */
+        header {
+            background-color: #006633; /* Màu xanh lá cây đặc trưng */
+            color: #fff;
+            padding: 15px 20px; /* Tăng padding một chút */
+            display: flex; /* Sử dụng flexbox để căn chỉnh logo và tiêu đề */
+            align-items: center; /* Căn giữa các item theo chiều dọc */
+            border-bottom: #FFCC00 5px solid; /* Đường viền vàng */
+        }
+
+        #logo img {
+            height: 80px; /* Điều chỉnh kích thước logo */
+            margin-right: 20px; /* Khoảng cách giữa logo và tên trường */
+            border-radius: 5px; /* Bo góc nhẹ cho logo nếu cần */
+        }
+
+        .school-info h1 {
+            margin: 0;
+            font-size: 2.2rem; /* Có thể điều chỉnh nếu tên trường quá dài */
+        }
+
+        .school-info p {
+            margin: 5px 0 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- PHẦN NAVIGATION --- */
+        nav {
+            background: #444;
+            color: #fff;
+            padding: 0.8rem;
+            text-align: center;
+            position: sticky; /* Giữ nav ở trên cùng khi cuộn */
+            top: 0;
+            z-index: 1000; /* Đảm bảo nav luôn ở trên các phần tử khác */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #FFCC00; /* Màu vàng khi hover hoặc active */
+            font-weight: bold;
+        }
+
+        /* --- PHẦN SLIDESHOW --- */
+        .slideshow-container {
+            width: 100%;
+            max-height: 450px; /* Điều chỉnh chiều cao tối đa của slideshow */
+            position: relative;
+            margin: auto;
+            overflow: hidden; /* Quan trọng để ảnh không tràn ra ngoài */
+            background-color: #ddd; /* Màu nền cho trường hợp ảnh chưa tải */
+        }
+
+        .mySlides {
+            display: none; /* Ẩn tất cả các slide ban đầu */
+            width: 100%;
+            height: 450px; /* Chiều cao cố định cho các slide */
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ slide mà không bị méo */
+        }
+
+        /* Animation cho slideshow (Fade effect) */
+        .fade {
+            animation-name: fade;
+            animation-duration: 2s; /* Thời gian cho hiệu ứng fade */
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* --- PHẦN CONTAINER CHUNG --- */
+        .container {
+            width: 85%;
+            margin: 20px auto; /* Thêm margin top để không bị dính sát slideshow */
+            overflow: hidden;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        section {
+            padding: 25px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #006633;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 280px; /* Giảm kích thước ảnh một chút để vừa hơn */
+            height: auto;
+            margin: 10px;
+            border: 3px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .gallery {
+            text-align: center;
+        }
+
+        .testimonial {
+            background-color: #e9f5e9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #006633;
+            font-style: italic;
+        }
+
+        .testimonial p strong {
+            display: block;
+            text-align: right;
+            font-style: normal;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Logo và tên trường xếp chồng lên nhau */
+                text-align: center;
+            }
+            #logo img {
+                margin-right: 0;
+                margin-bottom: 10px; /* Khoảng cách dưới logo */
+                height: 60px;
+            }
+            .school-info h1 {
+                font-size: 1.8rem;
+            }
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .slideshow-container, .mySlides {
+                max-height: 300px; /* Giảm chiều cao slideshow trên mobile */
+            }
+            .gallery img {
+                max-width: 90%;
+            }
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            <img src="logo.jpg" alt="Nắng hạ">
+        </div>
+        <div class="school-info">
+            <h1>Trường Phổ Thông Dân Tộc Nội Trú Thái Nguyên</h1>
+            <p>"Nơi Chắp Cánh Ước Mơ Cho Học Sinh Dân Tộc"</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+            <li><a href="#hoc-tap">Môi Trường Học Tập</a></li>
+            <li><a href="#co-so-vat-chat">Cơ Sở Vật Chất</a></li>
+            <li><a href="#noi-tru">Cuộc Sống Nội Trú</a></li>
+            <li><a href="#cam-nhan">Cảm Nhận</a></li>
+            <li><a href="#lien-he">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="hoichotet.jpg" alt="Hình ảnh hoạt động trường ">
+        </div>
+        <div class="mySlides fade">
+            <img src="lop.jpg" alt="Hình ảnh cơ sở vật chất trường">
+        </div>
+        <div class="mySlides fade">
+            <img src="giaovien.jpg" alt="Hình ảnh học sinh và thầy cô">
+        </div>
+        <div class="mySlides fade">
+            <img src="toancanh.jpeg" alt="Toàn cảnh trường PTDTNT Thái Nguyên">
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="gioi-thieu">
+            <h2>Chào Mừng Đến Với Mái Trường DTNT Thái Nguyên!</h2>
+            <p>
+                Các em học sinh lớp 9 thân mến!
+            </p>
+            <p>
+                Trường Phổ thông Dân tộc Nội trú Thái Nguyên không chỉ là nơi chúng em học tập kiến thức, mà còn là ngôi nhà chung ấm áp, nơi lưu giữ những kỷ niệm đẹp đẽ của tuổi học trò. Qua trang web này, chúng em mong muốn chia sẻ một cách chân thực nhất về cuộc sống và học tập tại trường, để các em có thể hình dung rõ hơn về mái trường mà có thể các em sẽ gắn bó trong những năm tháng cấp 3 sắp tới.
+            </p>
+            <div class="gallery">
+              <img src="santruong.jpg" alt="Hình ảnh sân trường">            
+              <img src="Hsosantruong.jpeg" alt="Hình ảnh học sinh trường">            
+        </section>                
+        <section id="hoc-tap">
+            <h2>Môi Trường Học Tập Thân Thiện và Chất Lượng</h2>
+            <p>
+                Tại DTNT Thái Nguyên, chúng em sẽ được học tập trong một môi trường thân thiện, nơi thầy cô luôn tận tâm, nhiệt huyết và sẵn sàng giúp đỡ. Chương trình học được thiết kế phù hợp, bên cạnh kiến thức văn hóa, chúng em còn được tham gia nhiều hoạt động ngoại khóa bổ ích, các câu lạc bộ sở thích giúp phát triển toàn diện.
+            </p>
+            <ul>
+                <li><strong>Đội ngũ giáo viên:</strong> Giàu kinh nghiệm, yêu nghề, luôn quan tâm sát sao đến từng học sinh. Thầy cô không chỉ là người truyền đạt kiến thức mà còn như những người cha, người mẹ thứ hai của chúng em.</li>
+                <li><strong>Phương pháp giảng dạy:</strong> Đổi mới, sáng tạo, khuyến khích học sinh chủ động tìm tòi và phát huy khả năng của bản thân.</li>
+                <li><strong>Hoạt động ngoại khóa:</strong> Các câu lạc bộ học thuật (Toán, Lý, Hóa, Anh,...), văn nghệ, thể thao, các cuộc thi tìm hiểu văn hóa dân tộc, hoạt động tình nguyện... diễn ra sôi nổi.</li>
+                <li><strong>Thành tích nổi bật:</strong> nhiều học sinh đạt giải trong các kỳ thi học sinh giỏi cấp tỉnh, cấp quốc gia; tỷ lệ đỗ tốt nghiệp và đại học cao...</li>
+            </ul>
+            <div class="gallery">
+                <img src="lop.jpg" alt="Một giờ học tập sôi nổi">
+                <img src="thuvien.jpg" alt="Thư viện trường với nhiều đầu sách">
+                <img src="tet5.jpg" alt="Hoạt động ngoại khóa của học sinh">
+            </div>
+        </section>
+
+        <section id="co-so-vat-chat">
+            <h2>Cơ Sở Vật Chất Khang Trang, Hiện Đại</h2>
+            <p>
+                Trường luôn chú trọng đầu tư và cải thiện cơ sở vật chất để phục vụ tốt nhất cho việc học tập và sinh hoạt của học sinh nội trú.
+            </p>
+            <ul>
+                <li><strong>Phòng học:</strong> Rộng rãi, thoáng mát, được trang bị đầy đủ bảng, máy chiếu, ánh sáng...</li>
+                <li><strong>Phòng thí nghiệm:</strong> Các phòng thực hành Lý, Hóa, Sinh với trang thiết bị hiện đại, giúp chúng em củng cố kiến thức lý thuyết qua thực hành.</li>
+                <li><strong>Phòng tin học:</strong> Dàn máy tính kết nối internet, phục vụ cho việc học tập và tìm kiếm thông tin.</li>
+                <li><strong>Thư viện:</strong> Đa dạng các loại sách tham khảo, truyện, báo, tạp chí, là nơi lý tưởng để tự học và giải trí.</li>
+                <li><strong>Khu thể thao:</strong> Sân bóng đá, bóng chuyền, cầu lông... để chúng em rèn luyện sức khỏe sau những giờ học căng thẳng.</li>
+                <li><strong>Nhà ăn:</strong> Sạch sẽ, thoáng đãng, cung cấp những bữa ăn đủ dinh dưỡng và đảm bảo vệ sinh an toàn thực phẩm.</li>
+            </ul>
+            <div class="gallery">
+                <img src="daylophoc.jpg" alt="Phòng học khang trang">
+                <img src="nhaan.jpg" alt="Nhà ăn sạch sẽ ">
+                <img src="vuichoi2" alt="Sân bóng của trường">
+            </div>
+        </section>
+
+        <section id="noi-tru">
+            <h2>Cuộc Sống Nội Trú: Gắn Bó Như Một Gia Đình</h2>
+            <p>
+                Đây có lẽ là phần mà các bạn học sinh lớp 9 quan tâm nhất! Cuộc sống nội trú tại DTNT Thái Nguyên thực sự là một trải nghiệm đáng nhớ. Chúng em không chỉ học cách sống tự lập mà còn có thêm những người bạn thân thiết từ khắp các huyện, thành phố trong tỉnh.
+            </p>
+            <ul>
+                <li><strong>Phòng ở ký túc xá:</strong> Sạch sẽ, gọn gàng. Mỗi phòng thường có khoảng 6-8 bạn. Chúng em cùng nhau học tập, sinh hoạt, chia sẻ buồn vui.</li>
+                <li><strong>Nề nếp sinh hoạt:</strong> Có giờ giấc quy định rõ ràng cho việc học buổi tối, đi ngủ, thức dậy, giúp chúng em rèn luyện tính kỷ luật.</li>
+                <li><strong>Sự nhiệt tình của các thầy cô quản sinh:</strong> Thầy cô quản sinh luôn gần gũi, quan tâm, nhắc nhở và giúp đỡ chúng em trong mọi vấn đề của cuộc sống xa nhà.</li>
+                <li><strong>Hoạt động tập thể:</strong> Các buổi giao lưu văn nghệ, thể thao giữa các phòng, các khối, các hoạt động chào mừng ngày lễ lớn... tạo không khí vui tươi, đoàn kết.</li>
+                <li><strong>Bữa ăn tập thể:</strong> Cùng nhau ăn cơm tại nhà ăn cũng là một nét đặc trưng, giúp tình bạn thêm gắn kết.</li>
+                <li><strong>An ninh đảm bảo:</strong> Trường có bảo vệ 24/7, đảm bảo an toàn cho học sinh.</li>
+            </ul>
+            <div class="gallery">
+                <img src="canh.jpg" alt="Một góc phòng ở ký túc xá">
+                <img src="nhaan.jpg" alt="Giờ ăn tại nhà ăn tập thể">
+                <img src="santruong.jpg" alt="Buổi sinh hoạt tập thể vui vẻ">
+            </div>
+        </section>
+
+        <section id="cam-nhan">
+            <h2>Những Lời Chia Sẻ Chân Thực</h2>
+            <p>Để các em có cái nhìn khách quan hơn, hãy cùng lắng nghe những chia sẻ từ chính những học sinh đang và đã học tập tại trường:</p>
+
+            <div class="testimonial">
+                <p>
+                    "Ba năm học dưới mái trường DTNT Thái Nguyên là quãng thời gian em không thể nào quên. Em đã học được rất nhiều điều, không chỉ kiến thức mà còn là cách sống tự lập, tình bạn và sự sẻ chia. Thầy cô luôn là nguồn động viên lớn nhất của chúng em."
+                    <strong>- Nguyễn Văn A, Cựu học sinh khóa 2020-2023</strong>
+                </p>
+            </div>
+            <div class="testimonial">
+                <p>
+                    "Lúc mới vào trường em cũng lo lắm, sợ không quen. Nhưng các anh chị khóa trên, các bạn cùng phòng và thầy cô đã giúp đỡ em rất nhiều. Giờ thì trường như nhà, bạn bè như anh em. Môi trường học tập ở đây rất tốt, giúp em tiến bộ từng ngày."
+                    <strong>- Trần Thị B, Học sinh lớp 11</strong>
+                </p>
+            </div>
+            <div class="testimonial">
+                <p>
+                    "Điều em thích nhất ở trường là không khí gia đình. Dù đến từ nhiều dân tộc khác nhau, chúng em luôn đoàn kết và yêu thương nhau. Các hoạt động văn hóa dân tộc cũng rất thú vị, giúp chúng em hiểu và tự hào hơn về bản sắc của mình."
+                    <strong>- Lý Văn C, Học sinh lớp 10</strong>
+                </p>
+            </div>
+        </section>
+
+        <section id="lien-he">
+            <h2>Thông Tin Liên Hệ và Tuyển Sinh</h2>
+            <p>
+                Nếu các em và quý phụ huynh có bất kỳ thắc mắc nào hoặc muốn tìm hiểu thêm thông tin tuyển sinh, vui lòng liên hệ:
+            </p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">📍</span>Địa chỉ:</strong> Tổ 5, phường Tân Lập, thành phố Thái Nguyên, tỉnh Thái Nguyên.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">☎️</span>Số điện thoại:</strong> 
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">💌</span>Email:</strong> 
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">🌐</span>Website chính thức :</strong> <a href="" target="_blank"></a>
+                </li>
+            </ul>
+            <p>
+                Hàng năm, trường đều có thông báo tuyển sinh cụ thể gửi đến các trường THCS trong toàn tỉnh. Các em hãy chú ý theo dõi thông tin từ thầy cô chủ nhiệm hoặc trên các kênh thông tin của Sở Giáo dục và Đào tạo Thái Nguyên nhé!
+            </p>
+            <p>
+                Chúc các em học sinh lớp 9 ôn tập thật tốt và đưa ra lựa chọn sáng suốt cho tương lai của mình. Mái trường PTDTNT Thái Nguyên luôn rộng mở chào đón các em!
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024-2025 Trường PTDTNT Thái Nguyên - Thiết kế bởi một học sinh yêu trường.</p>
+        <p>Bản quyền thuộc về Triệu Thị Điệp.</p>
+        <p>Chi tiết thông tin liên hệ:  </p>
+         <ul style="list-style-type: none; padding-left: 0;">
+           <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">☎️</span>SĐT: 0367371649</strong></li>
+           <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">💌</span>E-mail: trieuthidiep203@gmail.com</strong></li>
+           <li style="margin-bottom: 10px;">
+                    <strong><span style="display: inline-block; width: 40px;">📍</span>Địa chỉ liên hệ: Võ Nhai-Thái Nguyên</strong></li>
+         </ul>
+    </footer>
+
+    <script>
+        // --- JAVASCRIPT CHO SLIDESHOW ---
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slidedex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 4000); // Thay đổi ảnh mỗi 4 giây (4000ms)
+        }
+
+        // --- JAVASCRIPT CHO ACTIVE LINK TRÊN NAV ---
+        // Lấy tất cả các link trong nav
+        const navLinks = document.querySelectorAll('nav ul li a');
+        // Lấy tất cả các section
+        const sections = document.querySelectorAll('section');
+
+        window.onscroll = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Lấy chiều cao của header và nav để tính offset chính xác hơn
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const offset = headerHeight + navHeight;
+
+                if (pageYOffset >= sectionTop - offset - 50) { // -50 để active sớm hơn một chút
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+    </script>
+
+</body>
+</html>
